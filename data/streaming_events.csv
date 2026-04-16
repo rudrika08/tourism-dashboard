@@ -1,0 +1,41 @@
+event_id,event_type,event_timestamp,booking_id,guide_id,destination_id,tourists_count,amount_inr,payment_method,device_type,session_duration_sec,ip_region,is_peak_season
+EVT001,booking_created,2024-03-01 08:15:22,BK036,G04,D04,3,7500,UPI,Mobile,145,Karnataka,Yes
+EVT002,payment_confirmed,2024-03-01 08:17:45,BK036,G04,D04,3,7500,UPI,Mobile,NULL,Karnataka,Yes
+EVT003,booking_created,2024-03-01 09:30:10,BK037,G05,D05,5,6000,Credit Card,Desktop,220,Tamil Nadu,Yes
+EVT004,payment_confirmed,2024-03-01 09:33:00,BK037,G05,D05,5,6000,Credit Card,Desktop,NULL,Tamil Nadu,Yes
+EVT005,booking_created,2024-03-01 10:45:33,BK038,G08,D08,2,5400,Net Banking,Desktop,310,Himachal Pradesh,No
+EVT006,payment_confirmed,2024-03-01 10:50:20,BK038,G08,D08,2,5400,Net Banking,Desktop,NULL,Himachal Pradesh,No
+EVT007,booking_created,2024-03-01 11:22:14,BK039,G10,D10,7,16800,UPI,Mobile,178,Kerala,Yes
+EVT008,payment_confirmed,2024-03-01 11:24:50,BK039,G10,D10,7,16800,UPI,Mobile,NULL,Kerala,Yes
+EVT009,booking_viewed,2024-03-01 12:05:00,NULL,NULL,D01,NULL,NULL,NULL,Mobile,85,Odisha,Yes
+EVT010,booking_viewed,2024-03-01 12:07:45,NULL,NULL,D04,NULL,NULL,NULL,Mobile,120,Maharashtra,Yes
+EVT011,booking_created,2024-03-01 13:18:55,BK040,G03,D03,4,4800,UPI,Mobile,195,Delhi,No
+EVT012,payment_confirmed,2024-03-01 13:21:30,BK040,G03,D03,4,4800,UPI,Mobile,NULL,Delhi,No
+EVT013,booking_created,2024-03-01 14:30:00,BK041,G09,D09,6,10800,Credit Card,Desktop,265,Rajasthan,Yes
+EVT014,payment_confirmed,2024-03-01 14:33:45,BK041,G09,D09,6,10800,Credit Card,Desktop,NULL,Rajasthan,Yes
+EVT015,booking_created,2024-03-01 15:10:22,BK042,G06,D06,3,6300,Debit Card,Mobile,150,West Bengal,Yes
+EVT016,cancellation_requested,2024-03-01 16:30:10,BK042,G06,D06,3,6300,NULL,Mobile,NULL,West Bengal,Yes
+EVT017,refund_initiated,2024-03-01 17:00:00,BK042,G06,D06,3,6300,Debit Card,NULL,NULL,West Bengal,Yes
+EVT018,booking_created,2024-03-01 17:45:33,BK043,G11,D11,5,9000,UPI,Mobile,185,Mumbai,Yes
+EVT019,payment_confirmed,2024-03-01 17:48:20,BK043,G11,D11,5,9000,UPI,Mobile,NULL,Mumbai,Yes
+EVT020,guide_checkin,2024-03-01 08:00:00,NULL,G01,D01,NULL,NULL,NULL,NULL,NULL,Odisha,Yes
+EVT021,tour_started,2024-03-01 08:30:00,BK034,G01,D01,8,NULL,NULL,NULL,NULL,Odisha,Yes
+EVT022,tour_completed,2024-03-01 14:30:00,BK034,G01,D01,8,NULL,NULL,NULL,NULL,Odisha,Yes
+EVT023,review_submitted,2024-03-01 15:00:00,BK034,G01,D01,NULL,NULL,NULL,Mobile,NULL,Odisha,Yes
+EVT024,guide_checkin,2024-03-01 09:00:00,NULL,G04,D04,NULL,NULL,NULL,NULL,NULL,Karnataka,Yes
+EVT025,tour_started,2024-03-01 09:30:00,BK048,G04,D04,8,NULL,NULL,NULL,NULL,Karnataka,Yes
+EVT026,search_event,2024-03-01 10:00:00,NULL,NULL,NULL,NULL,NULL,NULL,Mobile,45,Punjab,Yes
+EVT027,search_event,2024-03-01 10:02:15,NULL,NULL,NULL,NULL,NULL,NULL,Mobile,60,Haryana,Yes
+EVT028,booking_created,2024-03-02 09:00:00,BK044,G02,D02,2,3200,UPI,Mobile,135,Rajasthan,Yes
+EVT029,payment_confirmed,2024-03-02 09:03:15,BK044,G02,D02,2,3200,UPI,Mobile,NULL,Rajasthan,Yes
+EVT030,booking_created,2024-03-02 10:30:00,BK045,G01,D01,6,7200,Credit Card,Desktop,245,Delhi,Yes
+EVT031,payment_confirmed,2024-03-02 10:33:45,BK045,G01,D01,6,7200,Credit Card,Desktop,NULL,Delhi,Yes
+EVT032,booking_created,2024-03-02 11:15:22,BK046,G12,D12,4,8400,Net Banking,Desktop,195,Uttarakhand,No
+EVT033,payment_pending,2024-03-02 11:20:00,BK046,G12,D12,4,8400,Net Banking,Desktop,NULL,Uttarakhand,No
+EVT034,booking_created,2024-03-02 13:45:00,BK047,G07,D07,3,14400,UPI,Mobile,175,Uttar Pradesh,Yes
+EVT035,payment_confirmed,2024-03-02 13:48:22,BK047,G07,D07,3,14400,UPI,Mobile,NULL,Uttar Pradesh,Yes
+EVT036,guide_location_update,2024-03-02 14:00:00,NULL,G01,D01,NULL,NULL,NULL,Mobile,NULL,Odisha,Yes
+EVT037,guide_location_update,2024-03-02 14:00:05,NULL,G04,D04,NULL,NULL,NULL,Mobile,NULL,Karnataka,Yes
+EVT038,guide_location_update,2024-03-02 14:00:10,NULL,G10,D10,NULL,NULL,NULL,Mobile,NULL,Kerala,Yes
+EVT039,booking_created,2024-03-02 15:30:00,BK048,G04,D04,8,20000,Credit Card,Desktop,300,Karnataka,Yes
+EVT040,payment_confirmed,2024-03-02 15:34:00,BK048,G04,D04,8,20000,Credit Card,Desktop,NULL,Karnataka,Yes

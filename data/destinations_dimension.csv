@@ -1,0 +1,13 @@
+destination_id,destination_name,city,state,region,category,avg_footfall_per_month,entry_fee_inr,best_season,unesco_listed,difficulty_level,distance_from_nearest_airport_km,avg_tour_duration_hours,popular_tour_type
+D01,Konark Sun Temple,Puri,Odisha,East,Heritage,28000,40,Oct-Mar,Yes,Easy,65,6,Heritage Walk
+D02,Ranthambore National Park,Sawai Madhopur,Rajasthan,North,Wildlife,18000,1500,Nov-Apr,No,Moderate,180,8,Nature Trek
+D03,Rishikesh Adventure Zone,Rishikesh,Uttarakhand,North,Adventure,35000,0,Mar-Jun,No,Hard,35,4,Adventure
+D04,Kabini Wildlife Reserve,Mysuru,Karnataka,South,Wildlife,12000,2000,Oct-May,No,Moderate,80,10,Wildlife Safari
+D05,Marina Beach,Chennai,Tamil Nadu,South,Beach,95000,0,Nov-Feb,No,Easy,15,5,Beach Tour
+D06,Victoria Memorial,Kolkata,West Bengal,East,Cultural,45000,20,Oct-Mar,No,Easy,20,7,Cultural Tour
+D07,Kashi Vishwanath Temple,Varanasi,Uttar Pradesh,North,Pilgrimage,120000,0,Oct-Mar,No,Easy,25,12,Pilgrimage Tour
+D08,Rohtang Pass,Manali,Himachal Pradesh,North,Hill Station,22000,550,May-Oct,No,Hard,52,9,Hill Station Tour
+D09,Sam Sand Dunes,Jaisalmer,Rajasthan,North,Desert,30000,350,Oct-Mar,No,Easy,40,6,Desert Tour
+D10,Alleppey Backwaters,Alleppey,Kerala,South,Backwater,40000,0,Sep-Mar,No,Easy,68,8,Backwater Tour
+D11,Gateway of India,Mumbai,Maharashtra,West,Heritage,80000,0,Nov-Feb,No,Easy,28,5,City Tour
+D12,Valley of Flowers,Chamoli,Uttarakhand,North,Nature,15000,150,Jun-Oct,Yes,Hard,300,7,Valley Tour

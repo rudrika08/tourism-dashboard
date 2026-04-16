@@ -1,0 +1,13 @@
+guide_id,guide_name,age,gender,city,state,experience_years,languages_spoken,specialization,certification,availability_status,hourly_rate_inr,total_tours_conducted,avg_rating,tours_this_month,income_this_month_inr,joined_date
+G01,Ramesh Patnaik,38,Male,Bhubaneswar,Odisha,12,English|Hindi|Odia,Heritage Walk,IATO Certified,Available,800,340,4.8,14,67200,2012-03-15
+G02,Sunita Sharma,31,Female,Jaipur,Rajasthan,7,Hindi|English|Rajasthani,Nature Trek,State Certified,Available,600,180,3.9,9,43200,2017-06-01
+G03,Arjun Nair,27,Male,Kochi,Kerala,4,Malayalam|English|Hindi,Adventure,IATO Certified,Available,700,95,4.2,11,30800,2020-01-10
+G04,Priya Mehta,35,Female,Bengaluru,Karnataka,10,Kannada|English|Hindi,Wildlife Safari,Wildlife Certified,Available,1200,260,4.9,13,156000,2014-08-22
+G05,Mohan Das,44,Male,Chennai,Tamil Nadu,18,Tamil|English|Hindi,Beach Tour,State Certified,Available,550,420,4.1,12,39600,2006-02-18
+G06,Rupa Banerjee,29,Female,Kolkata,West Bengal,5,Bengali|Hindi|English,Cultural Tour,IATO Certified,Available,750,110,4.4,10,52500,2019-07-30
+G07,Vikram Singh,52,Male,Varanasi,Uttar Pradesh,25,Hindi|English|Sanskrit,Pilgrimage Tour,Ministry Certified,On Leave,900,580,4.6,8,86400,2000-11-05
+G08,Anjali Verma,33,Female,Shimla,Himachal Pradesh,8,Hindi|English|Pahari,Hill Station Tour,State Certified,Available,850,195,3.7,10,76500,2016-04-12
+G09,Karim Khan,40,Male,Jaisalmer,Rajasthan,15,Hindi|English|Urdu,Desert Tour,IATO Certified,Available,750,310,4.3,12,54000,2009-09-20
+G10,Divya Menon,28,Female,Alleppey,Kerala,4,Malayalam|English,Backwater Tour,State Certified,Available,1000,88,4.7,12,96000,2020-05-14
+G11,Santosh Gupta,36,Male,Mumbai,Maharashtra,9,Hindi|English|Marathi,City Tour,IATO Certified,Available,700,205,4.5,11,46200,2015-10-08
+G12,Neha Rawat,30,Female,Mussoorie,Uttarakhand,6,Hindi|English,Valley Tour,State Certified,Available,800,145,4.0,8,51200,2018-03-25

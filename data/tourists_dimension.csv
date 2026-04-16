@@ -1,0 +1,50 @@
+tourist_id,tourist_name,age,gender,nationality,home_city,home_country,travel_type,preferred_tour,repeat_customer,total_bookings,total_spent_inr,loyalty_tier,registration_date
+T101,Amit Sinha,34,Male,Indian,Delhi,India,Group,Heritage Walk,Yes,3,14400,Silver,2022-05-10
+T102,Clara Webb,28,Female,British,London,UK,Couple,Nature Trek,No,1,3200,Bronze,2024-01-04
+T103,Rahul Gupta,25,Male,Indian,Pune,India,Solo,Adventure,Yes,2,9600,Bronze,2023-08-15
+T104,Meena Iyer,42,Female,Indian,Chennai,India,Group,Heritage Walk,Yes,4,21600,Gold,2021-03-20
+T105,James Carter,55,Male,American,New York,USA,Group,Wildlife Safari,No,1,12500,Bronze,2024-01-07
+T106,Fatima Sheikh,30,Female,Indian,Hyderabad,India,Couple,Beach Tour,Yes,2,7200,Bronze,2023-11-05
+T107,Sanjay Mehta,48,Male,Indian,Ahmedabad,India,Group,Nature Trek,Yes,5,32000,Gold,2020-06-18
+T108,Lily Chen,22,Female,Chinese,Beijing,China,Couple,Cultural Tour,No,1,6300,Bronze,2024-01-10
+T109,Deepak Rao,31,Male,Indian,Bengaluru,India,Solo,Adventure,Yes,3,14400,Silver,2022-09-12
+T110,Kavya Reddy,27,Female,Indian,Vijayawada,India,Couple,Pilgrimage Tour,No,1,9600,Bronze,2024-01-12
+T111,Tom Harrison,60,Male,Australian,Sydney,Australia,Group,Heritage Walk,Yes,2,12000,Bronze,2023-04-22
+T112,Sneha Joshi,36,Female,Indian,Nagpur,India,Group,Hill Station Tour,Yes,2,16200,Bronze,2023-07-14
+T113,Robert Kim,45,Male,Korean,Seoul,South Korea,Group,Wildlife Safari,No,1,20000,Bronze,2024-01-17
+T114,Zara Ahmed,29,Female,Pakistani,Lahore,Pakistan,Couple,Desert Tour,No,1,3600,Bronze,2024-01-18
+T115,Priya Nair,33,Female,Indian,Kochi,India,Group,Beach Tour,Yes,3,14400,Silver,2022-12-01
+T116,Hans Muller,52,Male,German,Berlin,Germany,Group,Backwater Tour,No,1,14400,Bronze,2024-01-20
+T117,Vikas Jain,41,Male,Indian,Jaipur,India,Group,Nature Trek,Yes,4,19200,Silver,2021-08-30
+T118,Swati Kulkarni,38,Female,Indian,Kolkata,India,Group,Cultural Tour,Yes,2,21000,Silver,2022-06-15
+T119,Rajan Pillai,65,Male,Indian,Thiruvananthapuram,India,Couple,Pilgrimage Tour,Yes,3,28800,Gold,2020-02-14
+T120,Emma Watson,24,Female,British,Manchester,UK,Solo,Adventure,No,1,7200,Bronze,2024-01-25
+T121,Aryan Kapoor,29,Male,Indian,Mumbai,India,Group,Heritage Walk,No,1,4800,Bronze,2024-02-01
+T122,Geeta Sharma,50,Female,Indian,Lucknow,India,Group,City Tour,Yes,2,10800,Bronze,2023-05-18
+T123,Michael Brown,37,Male,American,Chicago,USA,Group,Wildlife Safari,No,1,12500,Bronze,2024-02-03
+T124,Isha Patel,26,Female,Indian,Surat,India,Couple,Valley Tour,No,1,4200,Bronze,2024-02-04
+T125,Rajesh Kumar,43,Male,Indian,Bhopal,India,Group,Hill Station Tour,Yes,3,24300,Silver,2022-01-09
+T126,Sophie Martin,31,Female,French,Paris,France,Group,Beach Tour,No,1,3600,Bronze,2024-02-06
+T127,Harish Nambiar,46,Male,Indian,Kozhikode,India,Group,Backwater Tour,Yes,2,28800,Silver,2022-10-22
+T128,Yusuf Ali,39,Male,Indian,Jodhpur,India,Group,Desert Tour,Yes,2,14400,Bronze,2023-03-07
+T129,Nina Petrov,27,Female,Russian,Moscow,Russia,Solo,Adventure,No,1,2400,Bronze,2024-02-09
+T130,Ritu Ghosh,44,Female,Indian,Siliguri,India,Group,Cultural Tour,Yes,3,31500,Gold,2020-08-24
+T131,Anand Verma,35,Male,Indian,Patna,India,Solo,Nature Trek,Yes,2,9600,Bronze,2023-09-30
+T132,Diana Lee,41,Female,Singaporean,Singapore,Singapore,Group,City Tour,No,1,10800,Bronze,2024-02-13
+T133,Manohar Tiwari,67,Male,Indian,Allahabad,India,Couple,Pilgrimage Tour,Yes,4,38400,Gold,2019-12-11
+T134,Pooja Singh,32,Female,Indian,Kanpur,India,Group,Heritage Walk,Yes,3,19200,Silver,2022-04-25
+T135,Peter Johnson,49,Male,Canadian,Toronto,Canada,Couple,Valley Tour,No,1,8400,Bronze,2024-02-16
+T136,Lata Shetty,37,Female,Indian,Mangalore,India,Group,Beach Tour,No,1,6000,Bronze,2024-03-02
+T137,Kiran Thakur,28,Male,Indian,Dehradun,India,Solo,Hill Station Tour,No,1,5400,Bronze,2024-03-03
+T138,Sara Johnson,33,Female,American,San Francisco,USA,Group,Backwater Tour,No,1,16800,Bronze,2024-03-04
+T139,Prakash Menon,51,Male,Indian,Thrissur,India,Solo,Adventure,Yes,2,9600,Bronze,2023-06-19
+T140,Anika Desai,24,Female,Indian,Vadodara,India,Solo,Desert Tour,No,1,10800,Bronze,2024-03-06
+T141,Suresh Babu,46,Male,Indian,Coimbatore,India,Group,Cultural Tour,Yes,2,16800,Bronze,2023-11-28
+T142,Preethi Rao,29,Female,Indian,Mysuru,India,Group,City Tour,No,1,9000,Bronze,2024-03-08
+T143,David Zhang,38,Male,Chinese,Shanghai,China,Couple,Nature Trek,No,1,3200,Bronze,2024-03-09
+T144,Nalini Krishnan,55,Female,Indian,Madurai,India,Group,Heritage Walk,Yes,5,36000,Gold,2019-07-15
+T145,Mohammed Hussain,44,Male,Indian,Aurangabad,India,Group,Valley Tour,No,1,8400,Bronze,2024-03-11
+T146,Aditya Bhatt,33,Male,Indian,Haridwar,India,Group,Pilgrimage Tour,Yes,3,43200,Gold,2020-09-03
+T147,Rachel Green,26,Female,British,Edinburgh,UK,Group,Wildlife Safari,No,1,20000,Bronze,2024-03-14
+T148,Vijay Kumar,57,Male,Indian,Tirupati,India,Couple,Hill Station Tour,Yes,2,10800,Bronze,2023-02-17
+T149,Ayesha Mirza,31,Female,Indian,Hyderabad,India,Group,Beach Tour,No,1,6000,Bronze,2024-03-16
