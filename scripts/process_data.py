@@ -1,8 +1,10 @@
 import pandas as pd
 from datetime import datetime
+from pathlib import Path
 
-data_path = "../data/"
-log_path = "../logs/pipeline.log"
+ROOT = Path(__file__).resolve().parents[1]
+data_path = ROOT / "data"
+log_path = ROOT / "logs" / "pipeline.log"
 
 def log(msg):
     with open(log_path, "a") as f:
@@ -12,11 +14,11 @@ try:
     log("Pipeline Started")
 
     # Load datasets
-    bookings = pd.read_csv(data_path + "tourist_bookings.csv")
-    tourists = pd.read_csv(data_path + "tourists_dimension.csv")
-    guides = pd.read_csv(data_path + "guides_dimension.csv")
-    destinations = pd.read_csv(data_path + "destinations_dimension.csv")
-    dates = pd.read_csv(data_path + "date_dimension.csv")
+    bookings = pd.read_csv(data_path / "tourist_bookings.csv")
+    tourists = pd.read_csv(data_path / "tourists_dimension.csv")
+    guides = pd.read_csv(data_path / "guides_dimension.csv")
+    destinations = pd.read_csv(data_path / "destinations_dimension.csv")
+    dates = pd.read_csv(data_path / "date_dimension.csv")
 
     log("All datasets loaded")
 
@@ -63,7 +65,7 @@ try:
         print("Total Revenue:", df["total_price_inr"].sum())
 
     # 💾 Save final dataset
-    df.to_csv(data_path + "final_analytics_dataset.csv", index=False)
+    df.to_csv(data_path / "final_analytics_dataset.csv", index=False)
 
     log("Final dataset saved")
     print("✅ Pipeline executed successfully")

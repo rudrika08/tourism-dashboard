@@ -26,7 +26,8 @@ def get_connection():
     if not database_url:
         raise RuntimeError("DATABASE_URL is not set")
 
-    return psycopg2.connect(database_url, sslmode="require")
+    db_sslmode = os.getenv("DB_SSLMODE", "require")
+    return psycopg2.connect(database_url, sslmode=db_sslmode)
 
 
 def normalize_value(value):
@@ -74,6 +75,10 @@ def create_table(cursor, table_name: str, df: pd.DataFrame) -> None:
 
 
 def seed_table(cursor, table_name: str, df: pd.DataFrame) -> None:
+    if table_name == "fact_bookings_stream" and "total_price_inr" in df.columns and "price" not in df.columns:
+        df = df.copy()
+        df["price"] = df["total_price_inr"]
+
     create_table(cursor, table_name, df)
     cursor.execute(sql.SQL("TRUNCATE TABLE {} RESTART IDENTITY CASCADE").format(sql.Identifier(table_name)))
 

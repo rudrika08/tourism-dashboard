@@ -1,10 +1,14 @@
 from kafka import KafkaProducer
+import os
 import json
 import time
 import random
 
+bootstrap_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+topic_name = os.getenv("KAFKA_TOPIC", "tourism_events")
+
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers=bootstrap_servers,
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
@@ -15,7 +19,7 @@ while True:
         "price": random.randint(1000, 10000)
     }
 
-    producer.send("tourism_events", value=data)
+    producer.send(topic_name, value=data)
     print("Sent:", data)
 
     time.sleep(2)

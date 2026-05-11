@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
 import os
+from pathlib import Path
 import psycopg2
+
+
+DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "final_analytics_dataset.csv"
 
 # ---------------------------
 # LOAD DATA
@@ -9,28 +13,50 @@ import psycopg2
 @st.cache_data
 def load_data():
     database_url = os.getenv("DATABASE_URL")
-    if not database_url:
-        st.error("DATABASE_URL is not set. Configure the Railway connection string in your environment.")
-        return pd.DataFrame()
-
+    db_sslmode = os.getenv("DB_SSLMODE", "require")
     conn = None
-    try:
-        conn = psycopg2.connect(database_url, sslmode="require")
 
-        for query in ("SELECT * FROM fact_bookings", "SELECT * FROM fact_bookings_stream"):
-            try:
-                df = pd.read_sql(query, conn)
-                break
-            except Exception:
+    if database_url:
+        try:
+            conn = psycopg2.connect(database_url, sslmode=db_sslmode)
+
+            for query in ("SELECT * FROM fact_bookings", "SELECT * FROM fact_bookings_stream"):
+                try:
+                    df = pd.read_sql(query, conn)
+                    break
+                except Exception:
+                    df = None
+            else:
                 df = None
-        else:
-            return pd.DataFrame()
 
-        if df is None:
-            return pd.DataFrame()
+            if df is not None and not df.empty:
+                if "booking_date" in df.columns:
+                    df["booking_date"] = pd.to_datetime(df["booking_date"], errors="coerce")
+
+                if "price" in df.columns:
+                    df["price"] = pd.to_numeric(df["price"], errors="coerce")
+
+                if "total_price_inr" in df.columns:
+                    df["total_price_inr"] = pd.to_numeric(df["total_price_inr"], errors="coerce")
+
+                if "rating" in df.columns:
+                    df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
+
+                return df
+        except Exception as exc:
+            st.warning(f"Database unavailable, falling back to bundled dataset: {exc}")
+        finally:
+            if conn is not None:
+                conn.close()
+
+    if DATA_PATH.exists():
+        df = pd.read_csv(DATA_PATH)
 
         if "booking_date" in df.columns:
             df["booking_date"] = pd.to_datetime(df["booking_date"], errors="coerce")
+
+        if "price" in df.columns:
+            df["price"] = pd.to_numeric(df["price"], errors="coerce")
 
         if "total_price_inr" in df.columns:
             df["total_price_inr"] = pd.to_numeric(df["total_price_inr"], errors="coerce")
@@ -39,17 +65,16 @@ def load_data():
             df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
 
         return df
-    except Exception as exc:
-        st.error(f"Failed to load data: {exc}")
-        return pd.DataFrame()
-    finally:
-        if conn is not None:
-            conn.close()
+
+    st.error("No database connection was available and the bundled dataset could not be found.")
+    return pd.DataFrame()
 
 df = load_data()
 
 if df.empty:
     st.stop()
+
+revenue_column = "price" if "price" in df.columns else "total_price_inr"
 
 # ---------------------------
 # TITLE
@@ -102,7 +127,7 @@ col1.metric("Total Bookings", len(filtered_df))
 
 col2.metric(
     "Total Revenue",
-    f"₹ {round(filtered_df['total_price_inr'].sum(), 2)}"
+    f"₹ {round(filtered_df[revenue_column].sum(), 2)}"
 )
 
 col3.metric(
@@ -154,7 +179,7 @@ st.line_chart(trend)
 st.subheader("💡 Revenue by Tour Type")
 
 tour = (
-    filtered_df.groupby("tour_type")["total_price_inr"]
+    filtered_df.groupby("tour_type")[revenue_column]
     .sum()
     .sort_values(ascending=False)
 )
