@@ -20,7 +20,7 @@ The system helps analyze:
 
 **Data Pipeline Flow:**
 
-Kafka → Spark → PostgreSQL → Airflow → Streamlit Dashboard
+Kafka → Spark → PostgreSQL → Streamlit Dashboard
 
 ---
 
@@ -28,8 +28,7 @@ Kafka → Spark → PostgreSQL → Airflow → Streamlit Dashboard
 
 - 🐍 Python – Core programming language  
 - 🔥 Apache Kafka – Real-time data streaming & ingestion  
-- ⚡ Apache Spark – Distributed data processing & analytics  
-- 🔄 Apache Airflow – Workflow orchestration & scheduling  
+- ⚡ Apache Spark – Distributed data processing & analytics    
 - 🗄️ PostgreSQL – Data storage and management  
 - 🔌 psycopg2 – Database connectivity (Python ↔ PostgreSQL)  
 - 📊 Streamlit – Interactive dashboard UI  
@@ -44,7 +43,7 @@ Kafka → Spark → PostgreSQL → Airflow → Streamlit Dashboard
 
 - Real-time data ingestion using Kafka  
 - Large-scale data processing using Spark  
-- Automated ETL pipelines using Airflow  
+- Automated ETL pipelines  
 - Structured storage in PostgreSQL  
 - Interactive dashboard built with Streamlit  
 - Visual analytics for tourism trends  
