@@ -1,18 +1,17 @@
 import streamlit as st
 import pandas as pd
-import os
 import psycopg2
 import plotly.express as px
 from streamlit_autorefresh import st_autorefresh
+
+# 🔄 Auto refresh every 5 seconds
+st_autorefresh(interval=5000, key="datarefresh")
 
 st.set_page_config(
     page_title="Tourism Analytics",
     page_icon="🌍",
     layout="wide"
 )
-
-# 🔄 Auto refresh every 5 seconds
-st_autorefresh(interval=5000, key="datarefresh")
 
 # 🎨 Custom UI
 st.markdown("""
@@ -24,33 +23,16 @@ st.markdown("""
 
 st.title("🌍 Tourism Real-Time Analytics Dashboard")
 
-@st.cache_data(ttl=5)
 def load_data():
-    database_url = os.getenv("DATABASE_URL")
-    if not database_url:
-        st.error("DATABASE_URL is not set. Configure the Railway database connection string in your environment.")
-        return pd.DataFrame()
-
-    try:
-        conn = psycopg2.connect(database_url, sslmode="require")
-
-        query = "SELECT * FROM fact_bookings_stream"
-        df = pd.read_sql(query, conn)
-        return df
-    except Exception as exc:
-        st.error(f"Failed to load streaming data: {exc}")
-        return pd.DataFrame()
-    finally:
-        try:
-            conn.close()
-        except Exception:
-            pass
-
-df = load_data()
+    engine = create_engine(st.secrets["postgresql://neondb_owner:npg_YFyEAo0vJH5n@ep-hidden-smoke-a4oyxfiu-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"])    
+    query = "SELECT * FROM fact_bookings_stream"
+    df = pd.read_sql(query, engine)
+    
+    return df
 # 📥 Load data
+df = load_data()
 
 if not df.empty:
-    price_column = "price" if "price" in df.columns else "total_price_inr"
 
     # 🎯 SIDEBAR FILTERS
     st.sidebar.header("🔍 Filters")
@@ -64,16 +46,16 @@ if not df.empty:
 
     price_range = st.sidebar.slider(
         "Price Range",
-        int(df[price_column].min()),
-        int(df[price_column].max()),
-        (int(df[price_column].min()), int(df[price_column].max())),
+        int(df["price"].min()),
+        int(df["price"].max()),
+        (int(df["price"].min()), int(df["price"].max())),
         key="price_filter"
     )
 
     # 🧹 Apply filters
     filtered_df = df[
         (df["destination_id"].isin(destinations)) &
-        (df[price_column].between(price_range[0], price_range[1]))
+        (df["price"].between(price_range[0], price_range[1]))
     ]
 
     # 📊 KPIs
@@ -82,8 +64,8 @@ if not df.empty:
     col1, col2, col3, col4 = st.columns(4)
 
     col1.metric("📦 Total Records", len(filtered_df))
-    col2.metric("💰 Revenue", f"₹ {int(filtered_df[price_column].sum())}")
-    col3.metric("📊 Avg Price", f"₹ {int(filtered_df[price_column].mean())}")
+    col2.metric("💰 Revenue", f"₹ {int(filtered_df['price'].sum())}")
+    col3.metric("📊 Avg Price", f"₹ {int(filtered_df['price'].mean())}")
     col4.metric("🌍 Unique Destinations", filtered_df["destination_id"].nunique())
 
     st.divider()
@@ -94,9 +76,9 @@ if not df.empty:
     with col5:
         st.subheader("💰 Revenue by Destination")
         fig1 = px.bar(
-            filtered_df.groupby("destination_id")[price_column].sum().reset_index(),
+            filtered_df.groupby("destination_id")["price"].sum().reset_index(),
             x="destination_id",
-            y=price_column,
+            y="price",
             color="destination_id"
         )
         st.plotly_chart(fig1, use_container_width=True)
@@ -116,7 +98,7 @@ if not df.empty:
 
     with col7:
         st.subheader("📊 Price Distribution")
-        fig3 = px.histogram(filtered_df, x=price_column, nbins=20)
+        fig3 = px.histogram(filtered_df, x="price", nbins=20)
         st.plotly_chart(fig3, use_container_width=True)
 
     st.divider()
@@ -127,11 +109,11 @@ if not df.empty:
     col8, col9 = st.columns(2)
 
     with col8:
-        high_value = filtered_df[filtered_df[price_column] > 5000]
+        high_value = filtered_df[filtered_df["price"] > 5000]
         st.success(f"High Value Bookings: {len(high_value)}")
 
     with col9:
-        low_value = filtered_df[filtered_df[price_column] < 3000]
+        low_value = filtered_df[filtered_df["price"] < 3000]
         st.warning(f"Low Value Bookings: {len(low_value)}")
 
     st.divider()
