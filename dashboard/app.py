@@ -1,36 +1,55 @@
 import streamlit as st
 import pandas as pd
+import os
 import psycopg2
-
-# ---------------------------
-# DB CONNECTION
-# ---------------------------
-conn = psycopg2.connect(
-    dbname="tourism_db",
-    user="postgres",
-    password="postgres",  # change if needed
-    host="localhost",
-    port="5432"
-)
 
 # ---------------------------
 # LOAD DATA
 # ---------------------------
 @st.cache_data
 def load_data():
-    query = "SELECT * FROM fact_bookings"
-    df = pd.read_sql(query, conn)
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        st.error("DATABASE_URL is not set. Configure the Railway connection string in your environment.")
+        return pd.DataFrame()
 
-    # ✅ FIX: convert to datetime
-    df["booking_date"] = pd.to_datetime(df["booking_date"])
+    conn = None
+    try:
+        conn = psycopg2.connect(database_url, sslmode="require")
 
-    # convert numeric columns
-    df["total_price_inr"] = pd.to_numeric(df["total_price_inr"], errors="coerce")
-    df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
+        for query in ("SELECT * FROM fact_bookings", "SELECT * FROM fact_bookings_stream"):
+            try:
+                df = pd.read_sql(query, conn)
+                break
+            except Exception:
+                df = None
+        else:
+            return pd.DataFrame()
 
-    return df
+        if df is None:
+            return pd.DataFrame()
+
+        if "booking_date" in df.columns:
+            df["booking_date"] = pd.to_datetime(df["booking_date"], errors="coerce")
+
+        if "total_price_inr" in df.columns:
+            df["total_price_inr"] = pd.to_numeric(df["total_price_inr"], errors="coerce")
+
+        if "rating" in df.columns:
+            df["rating"] = pd.to_numeric(df["rating"], errors="coerce")
+
+        return df
+    except Exception as exc:
+        st.error(f"Failed to load data: {exc}")
+        return pd.DataFrame()
+    finally:
+        if conn is not None:
+            conn.close()
 
 df = load_data()
+
+if df.empty:
+    st.stop()
 
 # ---------------------------
 # TITLE
